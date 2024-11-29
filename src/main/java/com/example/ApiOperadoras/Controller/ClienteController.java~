@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("API/Cliente")
 public class ClienteController {
@@ -26,24 +24,6 @@ public class ClienteController {
         try {
             clienteService.deletarCliente(id);
             return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-    }
-
-    @PutMapping("/Put/{id}")
-    public ResponseEntity<Cliente> atualizarCliente ( @PathVariable Integer id, @RequestBody Cliente cliente) {
-        try {
-            return new ResponseEntity<>(clienteService.atualizarCliente(cliente), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-    }
-
-    @PatchMapping("/Patch/{id}")
-    public ResponseEntity<Cliente> atualizarEmail ( @PathVariable Integer id, @RequestBody String email) {
-        try {
-            return new ResponseEntity<>(clienteService.atualizarEmail(id, email), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
