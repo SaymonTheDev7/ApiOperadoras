@@ -1,8 +1,11 @@
 package com.example.ApiOperadoras.Service;
 
 import com.example.ApiOperadoras.Model.Contrato;
+import com.example.ApiOperadoras.Model.Plano;
 import com.example.ApiOperadoras.Repository.ContratoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +34,10 @@ public class ContratoService {
             return contratoRepository.findById(id).get();
         }
         throw new RuntimeException("Contrato não encontrado");
+    }
+
+    public Plano buscarPlanoPorContrato (Integer id) {
+        return contratoRepository.findPlanoPorContrato(id);
     }
 
     public List<Contrato> buscarTodosContratos () {

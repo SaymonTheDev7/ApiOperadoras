@@ -1,5 +1,6 @@
 package com.example.ApiOperadoras.Controller;
 import com.example.ApiOperadoras.Model.Contrato;
+import com.example.ApiOperadoras.Model.Plano;
 import com.example.ApiOperadoras.Service.ContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,8 +41,8 @@ public class ContratoController {
         return new ResponseEntity<>(contratoService.buscarContrato(id), HttpStatus.OK);
     }
 
-    @GetMapping("/GetAll")
-    public ResponseEntity<List<Contrato>> buscarTodosContratos() {
-        return new ResponseEntity<>(contratoService.buscarTodosContratos(), HttpStatus.OK);
+    @GetMapping("/GetPlano/{id}")
+    public ResponseEntity<Plano> buscarPlanoPorContrato(@PathVariable Integer id) {
+        return new ResponseEntity<>(contratoService.buscarPlanoPorContrato(id), HttpStatus.OK);
     }
 }

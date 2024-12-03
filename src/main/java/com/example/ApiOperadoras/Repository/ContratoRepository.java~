@@ -1,7 +1,0 @@
-package com.example.ApiOperadoras.Repository;
-
-import com.example.ApiOperadoras.Model.Contrato;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface ContratoRepository extends JpaRepository<Contrato, Integer> {
-}
