@@ -1,0 +1,26 @@
+package com.example.ApiOperadoras.Controller;
+
+import com.example.ApiOperadoras.Model.ServicoAdicional;
+import com.example.ApiOperadoras.Service.ServicoAdicionalService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("API/ServicoAdicional")
+public class ServicoAdicionalController {
+
+    @Autowired
+    ServicoAdicionalService servicoAdicionalService;
+
+    @PostMapping("/Post")
+    public ResponseEntity<ServicoAdicional> salvarServicoAdicional(@RequestBody ServicoAdicional servicoAdicional) {
+        return new ResponseEntity<>(servicoAdicionalService.salvarServicoAdicional(servicoAdicional), HttpStatus.CREATED);
+    }
+
+    
+}
